@@ -2,7 +2,7 @@
   "name": "cryptomancer",
   "title": "Cryptomancer",
   "description": "The Cryptomancer system for FoundryVTT!",
-  "version": "0.2.0",
+  "version": "0.5.0",
   "minimumCoreVersion": "0.8.9",
   "compatibleCoreVersion": "9",
   "author": "OfficerHalf",
@@ -15,15 +15,39 @@
   "scripts": [],
   "packs": [
     {
-      "name": "talents",
-      "label": "Talents",
-      "path": "packs/talents.db",
+      "name": "consumables",
+      "label": "Consumables",
+      "path": "packs/consumables.db",
+      "type": "Item"
+    },
+    {
+      "name": "equipment",
+      "label": "Equipment",
+      "path": "packs/equipment.db",
+      "type": "Item"
+    },
+    {
+      "name": "outfits",
+      "label": "Outfits",
+      "path": "packs/outfits.db",
       "type": "Item"
     },
     {
       "name": "spells",
       "label": "Spells",
       "path": "packs/spells.db",
+      "type": "Item"
+    },
+    {
+      "name": "talents",
+      "label": "Talents",
+      "path": "packs/talents.db",
+      "type": "Item"
+    },
+    {
+      "name": "weapons",
+      "label": "Weapons",
+      "path": "packs/weapons.db",
       "type": "Item"
     }
   ],

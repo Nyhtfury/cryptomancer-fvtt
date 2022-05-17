@@ -22,7 +22,14 @@ Unzip `system.zip` from the latest release into your Foundry `Data/systems/crypt
 
 ## Use
 
-TBD.
+### Supported Features (so far!)
+
+- Player Character sheets
+- Skill checks with skill break/skill push and configurable check difficulty
+- Stuff (consumables, equipment, outfits, weapons)
+- Talents and Spells
+- Compendia containing all the Talents, Spells, and Stuff included in the core rules as well as Code and Dagger 1
+- Party sheet (it's really ugly)
 
 ## Development
 

@@ -1,0 +1,21 @@
+.crypt-equipment {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  section.coin-other {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    .other {
+      flex-grow: 1;
+      gap: 12px;
+      input {
+        text-align: left;
+      }
+    }
+    .coin input {
+      max-width: 80px;
+    }
+  }
+}

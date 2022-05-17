@@ -77,6 +77,7 @@ export interface Character {
   };
   gear: {
     other: string;
+    coin: number;
   };
   biography: {
     race: string;
@@ -98,6 +99,8 @@ export interface Character {
     key: string;
     value: number;
     max: number;
+    criticalWound: boolean;
+    mortalWound: boolean;
   };
   manaPoints: {
     label: string;
@@ -203,6 +206,9 @@ export interface Skill {
 export interface PreparedCharacter extends Character {
   talents: CryptomancerItem[];
   spells: CryptomancerItem[];
-  trademarkItems: CryptomancerItem[];
+  equipment: CryptomancerItem[];
+  weapons: CryptomancerItem[];
+  outfits: CryptomancerItem[];
+  consumables: CryptomancerItem[];
   checkDifficulty: CheckDifficulty;
 }

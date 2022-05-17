@@ -4,21 +4,20 @@ import {
   ActorData,
   ActorDataConstructorData,
 } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/data.mjs/actorData";
+import { CryptomancerItem } from "../item/item";
+import { EquipmentType } from "../item/item.enum";
 import { getGame } from "../shared/util";
 import { CheckDifficulty } from "../skill-check/skill-check.enum";
 
 import { SkillCheckService } from "../skill-check/skill-check.service";
-import { Cell } from "./actor.interface";
+import { Attribute, Cell, CoreAlt, ResourceAttribute } from "./actor.interface";
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
 export class CryptomancerActor extends Actor {
-  constructor(
-    data?: ActorDataConstructorData,
-    context?: Context<TokenDocument>
-  ) {
+  constructor(data?: ActorDataConstructorData, context?: Context<TokenDocument>) {
     super(data, context);
   }
 
@@ -56,18 +55,34 @@ export class CryptomancerActor extends Actor {
     if (actorData.type !== "character") return;
     actorData.data.talents = [];
     actorData.data.spells = [];
-    actorData.data.trademarkItems = [];
+    actorData.data.consumables = [];
+    actorData.data.equipment = [];
+    actorData.data.outfits = [];
+    actorData.data.weapons = [];
 
-    actorData.items.forEach((i) => {
-      switch (i.type) {
+    actorData.items.forEach((i: CryptomancerItem) => {
+      switch (i.data.type) {
         case "talent":
           actorData.data.talents.push(i);
           break;
         case "spell":
           actorData.data.spells.push(i);
           break;
-        case "trademarkItem":
-          actorData.data.trademarkItems.push(i);
+        case "equipment":
+          switch (i.data.data.type) {
+            case EquipmentType.Consumable:
+              actorData.data.consumables.push(i);
+              break;
+            case EquipmentType.Equipment:
+              actorData.data.equipment.push(i);
+              break;
+            case EquipmentType.Outfit:
+              actorData.data.outfits.push(i);
+              break;
+            case EquipmentType.Weapon:
+              actorData.data.weapons.push(i);
+              break;
+          }
           break;
       }
     });
@@ -116,14 +131,16 @@ export class CryptomancerActor extends Actor {
   }
 
   async rollAttribute(
-    coreName: string,
+    coreName: "wits" | "power" | "speed" | "resolve",
     attributeName: string,
     skillName = "",
     difficulty = CheckDifficulty.Challenging
   ) {
-    const attribute = (this.data.data as any).core[coreName].attributes[
-      attributeName
-    ];
+    if (this.data.type !== "character") {
+      return;
+    }
+    const core = this.data.data.core[coreName] as CoreAlt;
+    const attribute = core.attributes[attributeName];
     const skill = skillName ? attribute.skills[skillName] : null;
     if (skill) {
       return SkillCheckService.skillCheck(
@@ -138,7 +155,10 @@ export class CryptomancerActor extends Actor {
       return SkillCheckService.skillCheck(
         attribute.value,
         attributeName,
-        difficulty
+        difficulty,
+        undefined,
+        Boolean((attribute as Attribute as ResourceAttribute).break),
+        Boolean((attribute as Attribute as ResourceAttribute).push)
       );
     }
   }

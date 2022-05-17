@@ -290,6 +290,7 @@
         }
       },
       "gear": {
+        "coin": 0,
         "other": ""
       },
       "biography": {
@@ -311,7 +312,9 @@
         "label": "healthPoints",
         "key": "healthPoints",
         "value": 10,
-        "max": 10
+        "max": 10,
+        "criticalWound": false,
+        "mortalWound": false
       },
       "manaPoints": {
         "label": "manaPoints",
@@ -414,11 +417,26 @@
     }
   },
   "Item": {
-    "types": ["trademarkItem", "talent", "spell"],
+    "types": ["equipment", "trademarkItem", "talent", "spell"],
     "templates": {
       "base": {
         "description": ""
+      },
+      "physicalItem": {
+        "cost": 0,
+        "quantity": 1
+      },
+      "purchaseable": {
+        "purchaseCost": 10
       }
+    },
+    "equipment": {
+      "templates": ["base", "physicalItem"],
+      "type": "",
+      "rules": [],
+      "qualities": [],
+      "trademark": false,
+      "masterwork": false
     },
     "trademarkItem": {
       "templates": ["base"],
@@ -427,15 +445,12 @@
       "qualities": ""
     },
     "talent": {
-      "templates": ["base"],
-      "purchaseCost": 10,
+      "templates": ["base", "purchaseable"],
       "tiered": true,
-      "tiers": 3,
       "currentTier": 1
     },
     "spell": {
-      "templates": ["base"],
-      "purchaseCost": 10,
+      "templates": ["base", "purchaseable"],
       "castCost": 1,
       "type": "cantrip"
     }

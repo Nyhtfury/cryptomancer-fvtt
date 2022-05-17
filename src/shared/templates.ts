@@ -1,20 +1,22 @@
 import { getGame } from "./util";
 
 const partials: Record<string, string> = {
-  coreTriad: "systems/cryptomancer/actor-sheet/components/core-triad.hbs",
+  attributeBar: "systems/cryptomancer/shared/components/attribute-bar.hbs",
+  basicInfo: "systems/cryptomancer/actor-sheet/components/basic-info.hbs",
+  defenses: "systems/cryptomancer/actor-sheet/components/defenses.hbs",
+  miniTriad: "systems/cryptomancer/actor-sheet/components/mini-triad.hbs",
   skillList: "systems/cryptomancer/actor-sheet/components/skill-list.hbs",
-  resourceSkill:
-    "systems/cryptomancer/actor-sheet/components/resource-skill.hbs",
   defense: "systems/cryptomancer/actor-sheet/components/defense.hbs",
-  featureList: "systems/cryptomancer/actor-sheet/components/feature-list.hbs",
+  features: "systems/cryptomancer/actor-sheet/components/features.hbs",
   bio: "systems/cryptomancer/actor-sheet/components/bio.hbs",
-  gear: "systems/cryptomancer/actor-sheet/components/gear.hbs",
-  safehouseRoom:
-    "systems/cryptomancer/actor-sheet/components/safehouse-room.hbs",
+  equipment: "systems/cryptomancer/actor-sheet/components/equipment.hbs",
+  safehouseRoom: "systems/cryptomancer/actor-sheet/components/safehouse-room.hbs",
   cell: "systems/cryptomancer/actor-sheet/components/cell.hbs",
-  textInput: "systems/cryptomancer/shared/components/text-input/text-input.hbs",
-  coreInput: "systems/cryptomancer/shared/components/core-input/core-input.hbs",
-  toggleBox: "systems/cryptomancer/shared/components/toggle-box/toggle-box.hbs",
+  formField: "systems/cryptomancer/shared/components/form-field.hbs",
+  coreInput: "systems/cryptomancer/shared/components/core-input.hbs",
+  toggle: "systems/cryptomancer/shared/components/toggle.hbs",
+  toggleBox: "systems/cryptomancer/shared/components/toggle-box.hbs",
+  skill: "systems/cryptomancer/actor-sheet/components/skill.hbs",
 };
 
 /**
@@ -24,13 +26,7 @@ const partials: Record<string, string> = {
  */
 export const preloadHandlebarsTemplates = async function () {
   await cryptLoadTemplates(partials);
-  return loadTemplates([
-    "systems/cryptomancer/actor-sheet/parts/actor-features.hbs",
-    "systems/cryptomancer/actor-sheet/parts/actor-items.hbs",
-    "systems/cryptomancer/actor-sheet/parts/actor-spells.hbs",
-    "systems/cryptomancer/actor-sheet/parts/actor-effects.hbs",
-    "systems/cryptomancer/skill-check/skill-check.hbs",
-  ]);
+  return loadTemplates(["systems/cryptomancer/skill-check/skill-check.hbs", "systems/cryptomancer/item/chat-card.hbs"]);
 };
 
 /**
@@ -46,9 +42,7 @@ async function cryptGetTemplate(name: string, path: string) {
         const compiled = Handlebars.compile(resp.html);
         Handlebars.registerPartial(name, compiled);
         _templateCache[name] = compiled;
-        console.log(
-          `Cryptomancer VTT | Retrieved and compiled template ${name} at ${path}`
-        );
+        console.log(`Cryptomancer VTT | Retrieved and compiled template ${name} at ${path}`);
         resolve(compiled);
       });
     });

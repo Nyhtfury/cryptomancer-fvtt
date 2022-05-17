@@ -1,114 +1,82 @@
 <div class="crypt-bio">
   <div class="bio-section">
-    <p class="section-label">{{localize "CRYPTOMANCER.Bio.appearance"}}</p>
-    <div class="bio-section__input">
-      <label for="{{concat 'bio-build-' document.id}}">
-        {{localize "CRYPTOMANCER.Bio.build"}}
-      </label>
-      <input
-        id="{{concat 'bio-build-' document.id}}"
-        type="text"
-        name="data.biography.build"
-        placeholder="{{localize 'CRYPTOMANCER.Bio.build'}}"
-        value="{{data.data.biography.build}}"
-      />
+    <p class="section-label">
+      {{l "Bio.appearance"}}
+    </p>
+    <div class="crypt-form-field">
+      <label for="bio-build-{{document.id}}">{{l "Bio.build"}}</label>
+      <input id="bio-build-{{document.id}}"
+             type="text"
+             name="data.biography.build"
+             placeholder="{{l "Bio.build"}}"
+             value="{{data.data.biography.build}}"/>
     </div>
-    <div class="bio-section__input">
-      <label for="{{concat 'bio-eyes-' document.id}}">
-        {{localize "CRYPTOMANCER.Bio.eyes"}}
-      </label>
-      <input
-        id="{{concat 'bio-eyes-' document.id}}"
-        type="text"
-        name="data.biography.eyes"
-        placeholder="{{localize 'CRYPTOMANCER.Bio.eyes'}}"
-        value="{{data.data.biography.eyes}}"
-      />
+    <div class="crypt-form-field">
+      <label for="bio-eyes-{{document.id}}">{{l "Bio.eyes"}}</label>
+      <input id="bio-eyes-{{document.id}}"
+             type="text"
+             name="data.biography.eyes"
+             placeholder="{{l "Bio.eyes"}}"
+             value="{{data.data.biography.eyes}}"/>
     </div>
-    <div class="bio-section__input">
-      <label for="{{concat 'bio-hair-' document.id}}">
-        {{localize "CRYPTOMANCER.Bio.hair"}}
-      </label>
-      <input
-        id="{{concat 'bio-hair-' document.id}}"
-        type="text"
-        name="data.biography.hair"
-        placeholder="{{localize 'CRYPTOMANCER.Bio.hair'}}"
-        value="{{data.data.biography.hair}}"
-      />
+    <div class="crypt-form-field">
+      <label for="bio-hair-{{document.id}}">{{l "Bio.hair"}}</label>
+      <input id="bio-hair-{{document.id}}"
+             type="text"
+             name="data.biography.hair"
+             placeholder="{{l "Bio.hair"}}"
+             value="{{data.data.biography.hair}}"/>
     </div>
-    <div class="bio-section__input">
-      <label for="{{concat 'bio-skin-' document.id}}">
-        {{localize "CRYPTOMANCER.Bio.skin"}}
-      </label>
-      <input
-        id="{{concat 'bio-skin-' document.id}}"
-        type="text"
-        name="data.biography.skin"
-        placeholder="{{localize 'CRYPTOMANCER.Bio.skin'}}"
-        value="{{data.data.biography.skin}}"
-      />
+    <div class="crypt-form-field">
+      <label for="bio-skin-{{document.id}}">{{l "Bio.skin"}}</label>
+      <input id="bio-skin-{{document.id}}"
+             type="text"
+             name="data.biography.skin"
+             placeholder="{{l "Bio.skin"}}"
+             value="{{data.data.biography.skin}}"/>
     </div>
   </div>
   <div class="bio-section">
-    <p class="section-label">{{localize "CRYPTOMANCER.Bio.personality"}}</p>
-    <div class="bio-section__input">
-      <label for="{{concat 'bio-desires-' document.id}}">
-        {{localize "CRYPTOMANCER.Bio.desires"}}
-      </label>
-      <input
-        id="{{concat 'bio-desires-' document.id}}"
-        type="text"
-        name="data.biography.desires"
-        placeholder="{{localize 'CRYPTOMANCER.Bio.desires'}}"
-        value="{{data.data.biography.desires}}"
-      />
+    <p class="section-label">
+      {{l "Bio.personality"}}
+    </p>
+    <div class="crypt-form-field">
+      <label for="bio-desires-{{document.id}}">{{l "Bio.desires"}}</label>
+      <input id="bio-desires-{{document.id}}"
+             type="text"
+             name="data.biography.desires"
+             placeholder="{{l "Bio.desires"}}"
+             value="{{data.data.biography.desires}}"/>
     </div>
-    <div class="bio-section__input">
-      <label for="{{concat 'bio-fears-' document.id}}">
-        {{localize "CRYPTOMANCER.Bio.fears"}}
-      </label>
-      <input
-        id="{{concat 'bio-fears-' document.id}}"
-        type="text"
-        name="data.biography.fears"
-        placeholder="{{localize 'CRYPTOMANCER.Bio.fears'}}"
-        value="{{data.data.biography.fears}}"
-      />
+    <div class="crypt-form-field">
+      <label for="bio-fears-{{document.id}}">{{l "Bio.fears"}}</label>
+      <input id="bio-fears-{{document.id}}"
+             type="text"
+             name="data.biography.fears"
+             placeholder="{{l "Bio.fears"}}"
+             value="{{data.data.biography.fears}}"/>
     </div>
-    <div class="bio-section__input">
-      <label for="{{concat 'bio-tendsTo-' document.id}}">
-        {{localize "CRYPTOMANCER.Bio.tendsTo"}}
-      </label>
-      <input
-        id="{{concat 'bio-tendsTo-' document.id}}"
-        type="text"
-        name="data.biography.tendsTo"
-        placeholder="{{localize 'CRYPTOMANCER.Bio.tendsTo'}}"
-        value="{{data.data.biography.tendsTo}}"
-      />
+    <div class="crypt-form-field">
+      <label for="bio-tendsTo-{{document.id}}">{{l "Bio.tendsTo"}}</label>
+      <input id="bio-tendsTo-{{document.id}}"
+             type="text"
+             name="data.biography.tendsTo"
+             placeholder="{{l "Bio.tendsTo"}}"
+             value="{{data.data.biography.tendsTo}}"/>
     </div>
-    <div class="bio-section__input">
-      <label for="{{concat 'bio-usedTo-' document.id}}">
-        {{localize "CRYPTOMANCER.Bio.usedTo"}}
-      </label>
-      <input
-        id="{{concat 'bio-usedTo-' document.id}}"
-        type="text"
-        name="data.biography.usedTo"
-        placeholder="{{localize 'CRYPTOMANCER.Bio.usedTo'}}"
-        value="{{data.data.biography.usedTo}}"
-      />
+    <div class="crypt-form-field">
+      <label for="bio-usedTo-{{document.id}}">{{l "Bio.usedTo"}}</label>
+      <input id="bio-usedTo-{{document.id}}"
+             type="text"
+             name="data.biography.usedTo"
+             placeholder="{{l "Bio.usedTo"}}"
+             value="{{data.data.biography.usedTo}}"/>
     </div>
   </div>
   <div class="bio-section background">
-    <p class="section-label">{{localize "CRYPTOMANCER.Bio.background"}}</p>
-    {{editor
-      content=data.data.biography.background
-      target="data.biography.background"
-      button=true
-      owner=owner
-      editable=editable
-    }}
+    <p class="section-label">
+      {{l "Bio.background"}}
+    </p>
+    {{editor content=data.data.biography.background target="data.biography.background" button=true owner=owner editable=editable }}
   </div>
 </div>
